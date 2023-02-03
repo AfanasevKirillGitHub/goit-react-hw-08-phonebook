@@ -1,21 +1,21 @@
-// import { Component, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Form, Input, AddContact, Text } from './ContactForm.styled';
-import { FaUserCircle } from 'react-icons/fa';
-import { BsFillTelephonePlusFill } from 'react-icons/bs';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { BsFillTelephonePlusFill } from 'react-icons/bs';
+import { FaUserCircle } from 'react-icons/fa';
+import { Form, Input, AddContact, Text } from './ContactForm.styled';
+
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
+
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contacts/contactsSlice';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contacts = useSelector(({ contacts }) => contacts);
+  const contacts = useSelector(({ contacts }) => contacts.contacts);
   const dispatch = useDispatch();
-
 
   const handleOnChange = event => {
     const { name, value } = event.currentTarget;
@@ -35,14 +35,22 @@ export const ContactForm = () => {
     event.preventDefault();
 
     const newContact = { id: nanoid(), name, number };
-    setName('');
-    setNumber('');
 
-    if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
       Notiflix.Notify.warning(`${name} is already in contacts`);
+      return;
+    } else if (contacts.find(contact => contact.number === number)) {
+      Notiflix.Notify.warning(`This ${number} is already in contacts`);
       return;
     }
     dispatch(addContact(newContact));
+
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -79,8 +87,4 @@ export const ContactForm = () => {
       <AddContact type="submit">Add contact</AddContact>
     </Form>
   );
-};
-
-ContactForm.propTypes = {
-  hanldeSubmit: PropTypes.func,
 };

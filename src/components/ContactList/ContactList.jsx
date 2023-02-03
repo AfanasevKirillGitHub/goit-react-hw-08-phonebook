@@ -1,16 +1,15 @@
 import { List, Item, Text, Button } from './ContactList.styled';
 import { MdDeleteForever } from 'react-icons/md';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsSlice';
 
 export const ContactList = () => {
-
-  const filter = useSelector(({ filter }) => filter)
-  const contacts = useSelector(({ contacts }) => contacts);
+  const filter = useSelector(({ filter }) => filter);
+  const contacts = useSelector(({ contacts }) => contacts.contacts);
   const dispatch = useDispatch();
 
   const onClcickDeleteContact = contactId => dispatch(deleteContact(contactId));
-
 
   const toLowerCaseFilter = () => {
     return contacts.filter(contact =>
@@ -18,9 +17,6 @@ export const ContactList = () => {
     );
   };
   const normalizeContact = toLowerCaseFilter();
-
-
-
 
   return (
     <List>
@@ -30,7 +26,10 @@ export const ContactList = () => {
             <Text>
               {name}: {number}
             </Text>
-            <Button type="button" onClick={() => dispatch(onClcickDeleteContact(id))}>
+            <Button
+              type="button"
+              onClick={() => dispatch(onClcickDeleteContact(id))}
+            >
               Delete
               <MdDeleteForever size={30} />
             </Button>
