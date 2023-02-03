@@ -1,7 +1,7 @@
-import { FilterLabel, FilterInput, FilterText } from './Filter.styled';
-import { MdFindInPage } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { filtration } from 'redux/filter/filterSlice';
+import { FilterLabel, FilterInput, FilterText } from './Filter.styled';
+import { MdFindInPage } from 'react-icons/md';
 
 export const Filter = () => {
   const dispatch = useDispatch()
