@@ -13,9 +13,14 @@ export const Filter = () => {
   return (
     <FilterLabel>
       <FilterText>
-        <MdFindInPage /> Find contacts by name
+        <MdFindInPage size={30} /> Find contacts by name
       </FilterText>
-      <FilterInput type="text" value={filter} onChange={filterOnChange} />
+      <FilterInput
+        placeholder="Please enter name..."
+        type="text"
+        value={filter}
+        onChange={filterOnChange}
+      />
     </FilterLabel>
   );
 };

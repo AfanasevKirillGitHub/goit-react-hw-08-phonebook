@@ -30,8 +30,7 @@ export const ContactList = () => {
               type="button"
               onClick={() => dispatch(onClcickDeleteContact(id))}
             >
-              Delete
-              <MdDeleteForever size={30} />
+              <MdDeleteForever color="black" size={30} />
             </Button>
           </Item>
         );

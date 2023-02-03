@@ -2,7 +2,13 @@ import { useState } from 'react';
 
 import { BsFillTelephonePlusFill } from 'react-icons/bs';
 import { FaUserCircle } from 'react-icons/fa';
-import { Form, Input, AddContact, Text } from './ContactForm.styled';
+import {
+  Form,
+  Input,
+  AddContact,
+  Text,
+  ContactFormWrapper,
+} from './ContactForm.styled';
 
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
@@ -54,37 +60,39 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={hanldeSubmit}>
-      <label>
-        <Text>
-          <FaUserCircle color="white" size={30} />
-          Username:
-        </Text>
-        <Input
-          type="text"
-          name="name"
-          value={name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={handleOnChange}
-        />
-      </label>
-      <label>
-        <Text>
-          <BsFillTelephonePlusFill color="white" size={30} /> Number:
-        </Text>
-        <Input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          value={number}
-          onChange={handleOnChange}
-        />
-      </label>
-      <AddContact type="submit">Add contact</AddContact>
-    </Form>
+    <ContactFormWrapper>
+      <Form onSubmit={hanldeSubmit}>
+        <label>
+          <Text>
+            <FaUserCircle color="white" size={30} />
+            Username:
+          </Text>
+          <Input
+            type="text"
+            name="name"
+            value={name}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+            onChange={handleOnChange}
+          />
+        </label>
+        <label>
+          <Text>
+            <BsFillTelephonePlusFill color="white" size={30} /> Number:
+          </Text>
+          <Input
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            value={number}
+            onChange={handleOnChange}
+          />
+        </label>
+        <AddContact type="submit">Add contact</AddContact>
+      </Form>
+    </ContactFormWrapper>
   );
 };
