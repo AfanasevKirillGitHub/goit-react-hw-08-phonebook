@@ -6,12 +6,15 @@ import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import basicContacts from './ContactList/basicContacts.json';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
+  const filter = useSelector(({ filter }) => filter)
+
   const [contacts, setContacts] = useState(() => {
     return JSON.parse(window.localStorage.getItem('contacts')) ?? basicContacts;
   });
-  const [filter, setFilter] = useState('');
+
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -34,17 +37,11 @@ export const App = () => {
     );
   };
 
-  const filterOnChange = event => {
-    setFilter(event.target.value);
-  };
-
   const toLowerCaseFilter = () => {
-    const normalized = filter.toLowerCase();
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalized)
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-
   const normalizeContact = toLowerCaseFilter();
 
   return (
@@ -67,7 +64,7 @@ export const App = () => {
         background="#292929"
         borderRadius={30}
       >
-        <Filter filterOnChange={filterOnChange} value={filter} />
+        <Filter />
         <ContactList contacts={normalizeContact} onDelete={deleteContact} />
       </Box>
     </Box>

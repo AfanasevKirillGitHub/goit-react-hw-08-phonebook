@@ -1,19 +1,20 @@
-import PropTypes from 'prop-types';
 import { FilterLabel, FilterInput, FilterText } from './Filter.styled';
 import { MdFindInPage } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { filtration } from 'redux/filter/filterSlice';
 
-export const Filter = ({ value, filterOnChange }) => {
+export const Filter = () => {
+  const dispatch = useDispatch()
+  const filter = useSelector(({ filter }) => filter)
+
+  const filterOnChange = event => dispatch(filtration(event.target.value))
+
   return (
     <FilterLabel>
       <FilterText>
         <MdFindInPage /> Find contacts by name
       </FilterText>
-      <FilterInput type="text" value={value} onChange={filterOnChange} />
+      <FilterInput type="text" value={filter} onChange={filterOnChange} />
     </FilterLabel>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  filterOnChange: PropTypes.func.isRequired,
 };
