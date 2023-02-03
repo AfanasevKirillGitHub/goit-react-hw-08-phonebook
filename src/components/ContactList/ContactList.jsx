@@ -6,7 +6,7 @@ import { deleteContact } from 'redux/contacts/contactsSlice';
 export const ContactList = () => {
 
   const filter = useSelector(({ filter }) => filter)
-  const contacts = useSelector(({ contacts }) => contacts.contacts);
+  const contacts = useSelector(({ contacts }) => contacts);
   const dispatch = useDispatch();
 
   const onClcickDeleteContact = contactId => dispatch(deleteContact(contactId));
