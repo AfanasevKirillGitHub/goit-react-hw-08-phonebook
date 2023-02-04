@@ -1,35 +1,55 @@
 import styled from 'styled-components';
 
+export const ContactListWrapper = styled.div`
+  padding-bottom: 25px;
+
+  @media (min-width: 768px) {
+    width: 320px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 450px;
+  }
+`;
+
 export const List = styled.ul`
-  margin: 30px 0 0 0;
+  margin: 0;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   list-style: none;
-  color: white;
-  font-size: 16px;
-  padding: 0;
 `;
 
 export const Item = styled.li`
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  height: 30px;
   list-style: none;
   color: white;
-  font-size: 20px;
 `;
 
 export const Text = styled.p`
   margin: 0;
+  font-size: 14px;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
 `;
 
 export const Button = styled.button`
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 40px;
+  width: 25px;
+  padding: 0;
   border: none;
   outline: none;
   color: #d34c3a;

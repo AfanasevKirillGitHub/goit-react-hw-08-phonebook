@@ -1,26 +1,21 @@
 import Box from './Box/Box';
 import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
+
 import { ContactList } from './ContactList/ContactList';
 import { Title } from './Title/Title';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
   return (
-    <Box
-      display="flex"
-      justifyContent="space-evenly"
-      bg="black"
-      textAlign="center"
-    >
-      <Box width={500}>
+    <Layout>
+      <Box>
         <Title children={'Phonebook'}></Title>
         <ContactForm />
       </Box>
-      <Box width={500}>
+      <Box>
         <Title children={'Contacts'}></Title>
-        <Filter />
         <ContactList />
       </Box>
-    </Box>
+    </Layout>
   );
 };

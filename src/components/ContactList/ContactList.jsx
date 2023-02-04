@@ -1,8 +1,15 @@
-import { List, Item, Text, Button } from './ContactList.styled';
+import {
+  List,
+  Item,
+  Text,
+  Button,
+  ContactListWrapper,
+} from './ContactList.styled';
 import { MdDeleteForever } from 'react-icons/md';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsSlice';
+import { Filter } from 'components/Filter/Filter';
 
 export const ContactList = () => {
   const filter = useSelector(({ filter }) => filter);
@@ -19,22 +26,25 @@ export const ContactList = () => {
   const normalizeContact = toLowerCaseFilter();
 
   return (
-    <List>
-      {normalizeContact.map(({ id, name, number }) => {
-        return (
-          <Item key={id}>
-            <Text>
-              {name}: {number}
-            </Text>
-            <Button
-              type="button"
-              onClick={() => dispatch(onClcickDeleteContact(id))}
-            >
-              <MdDeleteForever color="black" size={30} />
-            </Button>
-          </Item>
-        );
-      })}
-    </List>
+    <ContactListWrapper>
+      <Filter />
+      <List>
+        {normalizeContact.map(({ id, name, number }) => {
+          return (
+            <Item key={id}>
+              <Text>
+                {name}: {number}
+              </Text>
+              <Button
+                type="button"
+                onClick={() => dispatch(onClcickDeleteContact(id))}
+              >
+                <MdDeleteForever color="black" size={30} />
+              </Button>
+            </Item>
+          );
+        })}
+      </List>
+    </ContactListWrapper>
   );
 };

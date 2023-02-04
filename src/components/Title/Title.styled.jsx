@@ -4,6 +4,6 @@ export const TitleText = styled.h2`
   margin: 0;
   color: white;
   text-align: center;
-  margin-bottom: 30px;
-  margin-top: 25px;
+  padding-bottom: 25px;
+  padding-top: 10px;
 `;

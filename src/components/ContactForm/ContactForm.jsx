@@ -64,7 +64,7 @@ export const ContactForm = () => {
       <Form onSubmit={hanldeSubmit}>
         <label>
           <Text>
-            <FaUserCircle color="white" size={30} />
+            <FaUserCircle color="white" size={20} />
             Username:
           </Text>
           <Input
@@ -79,7 +79,7 @@ export const ContactForm = () => {
         </label>
         <label>
           <Text>
-            <BsFillTelephonePlusFill color="white" size={30} /> Number:
+            <BsFillTelephonePlusFill color="white" size={20} /> Number:
           </Text>
           <Input
             type="tel"
