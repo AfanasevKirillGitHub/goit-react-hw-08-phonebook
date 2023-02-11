@@ -27,6 +27,10 @@ export const FilterInput = styled.input`
     transition: all 0.5s ease-out;
     background-color: #49869ea7;
   }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
 `;
 
 export const FilterLabel = styled.label`
