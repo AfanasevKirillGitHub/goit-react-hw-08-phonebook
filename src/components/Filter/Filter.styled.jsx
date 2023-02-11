@@ -11,6 +11,7 @@ export const FilterInput = styled.input`
   background-color: black;
   color: white;
   border-bottom: solid 2px;
+  caret-color: transparent;
 
   @media (min-width: 768px) {
     font-size: 16px;
