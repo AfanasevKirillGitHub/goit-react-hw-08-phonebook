@@ -80,7 +80,7 @@ export const AddContact = styled.button`
   border: none;
   border-radius: 50%;
   color: white;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: bold;
   transition: all 1s ease-out;
 
@@ -105,6 +105,7 @@ export const AddContact = styled.button`
 `;
 
 export const Text = styled.p`
+  cursor: default;
   margin: 0 0 7px 0;
   color: white;
   display: flex;
