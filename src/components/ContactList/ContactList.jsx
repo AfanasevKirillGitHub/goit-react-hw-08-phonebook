@@ -8,15 +8,22 @@ import {
 import { MdDeleteForever } from 'react-icons/md';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contacts/contactsSlice';
+
 import { Filter } from 'components/Filter/Filter';
+import { useEffect } from 'react';
+import {
+  deleteContactThunk,
+  getContactsThunk,
+} from 'redux/contacts/contactsThunk';
 
 export const ContactList = () => {
   const filter = useSelector(({ filter }) => filter);
   const contacts = useSelector(({ contacts }) => contacts.contacts);
   const dispatch = useDispatch();
 
-  const onClcickDeleteContact = contactId => dispatch(deleteContact(contactId));
+  useEffect(() => {
+    dispatch(getContactsThunk());
+  }, [dispatch]);
 
   const toLowerCaseFilter = () => {
     return contacts.filter(contact =>
@@ -29,7 +36,7 @@ export const ContactList = () => {
     <ContactListWrapper>
       <Filter />
       <List>
-        {normalizeContact.map(({ id, name, number }) => {
+        {normalizeContact?.map(({ id, name, number }) => {
           return (
             <Item key={id}>
               <Text>
@@ -37,7 +44,7 @@ export const ContactList = () => {
               </Text>
               <Button
                 type="button"
-                onClick={() => dispatch(onClcickDeleteContact(id))}
+                onClick={() => dispatch(deleteContactThunk(id))}
               >
                 <MdDeleteForever color="black" size={30} />
               </Button>
