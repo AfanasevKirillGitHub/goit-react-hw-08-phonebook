@@ -1,5 +1,12 @@
+
+import { Header } from './Header/Header';
 import { Wrapper } from './Layout.styled';
 
 export const Layout = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+
+  return (<>
+    <Header />
+    <Wrapper>{children}</Wrapper>
+  </>)
+
 };

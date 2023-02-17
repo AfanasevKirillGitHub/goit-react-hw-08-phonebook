@@ -1,21 +1,17 @@
-import Box from './Box/Box';
-import { ContactForm } from './ContactForm/ContactForm';
 
-import { ContactList } from './ContactList/ContactList';
-import { Title } from './Title/Title';
+import HomePage from 'pages/HomePage/HomePage';
+import { Phonebook } from 'pages/Phonebook/Phonebook';
+import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 
 export const App = () => {
   return (
     <Layout>
-      <Box>
-        <Title children={'Phonebook'}></Title>
-        <ContactForm />
-      </Box>
-      <Box>
-        <Title children={'Contacts'}></Title>
-        <ContactList />
-      </Box>
+      <Routes>
+        <Route path="" element={<HomePage />} />
+        <Route path='/contacts' element={<Phonebook />} />
+      </Routes>
     </Layout>
   );
 };
+

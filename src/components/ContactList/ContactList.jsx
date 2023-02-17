@@ -16,6 +16,7 @@ import {
   getContactsThunk,
 } from 'redux/contacts/contactsThunk';
 
+
 export const ContactList = () => {
   const filter = useSelector(({ filter }) => filter);
   const contacts = useSelector(({ contacts }) => contacts.contacts);
