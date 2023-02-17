@@ -1,12 +1,18 @@
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Header } from 'components/Header/Header';
 
-import { Header } from './Header/Header';
-import { Wrapper } from './Layout.styled';
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
-export const Layout = ({ children }) => {
-
-  return (<>
-    <Header />
-    <Wrapper>{children}</Wrapper>
-  </>)
-
+export const Layout = () => {
+  return (
+    <>
+      <Header />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+      {/* <ToastContainer autoClose={2000} /> */}
+    </>
+  );
 };

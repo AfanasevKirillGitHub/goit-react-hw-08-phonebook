@@ -3,16 +3,19 @@ import axios from 'axios';
 
 // get all contacts //
 
-export const getContactsThunk = createAsyncThunk('contacts/get', async () => {
-  try {
-    const { data } = await axios.get(
-      'https://63e77fe7cbdc5658737881ad.mockapi.io/contacts'
-    );
-    return data;
-  } catch (error) {
-    return error;
+export const getContactsThunk = createAsyncThunk(
+  'contacts/get',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        'https://63e77fe7cbdc5658737881ad.mockapi.io/contacts'
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
   }
-});
+);
 
 // delete contact //
 

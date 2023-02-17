@@ -1,17 +1,54 @@
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks/useAuth';
 
-import HomePage from 'pages/HomePage/HomePage';
-import { Phonebook } from 'pages/Phonebook/Phonebook';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { PublicRoute } from './AuthRoutes/PublicRoute';
+import { PrivateRoute } from './AuthRoutes/PrivateRoute';
+
+import { refreshUser } from 'redux/auth/authThunk';
+
+import { Loader } from './Loader/Loader';
 import { Layout } from './Layout/Layout';
 
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const Registration = lazy(() => import('../pages/Registration/Registration'));
+const Login = lazy(() => import('../pages/Login/Login'));
+const Phonebook = lazy(() => import('../pages/Phonebook/Phonebook'));
+
 export const App = () => {
-  return (
-    <Layout>
-      <Routes>
-        <Route path="" element={<HomePage />} />
-        <Route path='/contacts' element={<Phonebook />} />
-      </Routes>
-    </Layout>
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <PrivateRoute redirectTo="/contacts" component={<Registration />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PrivateRoute redirectTo="/contacts" component={<Login />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PublicRoute redirectTo="/login" component={<Phonebook />} />
+          }
+        />
+      </Route>
+    </Routes>
   );
 };
-
