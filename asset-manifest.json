@@ -1,15 +1,27 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.3e3f00fb.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.1f60c2d3.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.c1d412d2.js",
+    "static/js/812.b3d12c32.chunk.js": "/goit-react-hw-08-phonebook/static/js/812.b3d12c32.chunk.js",
+    "static/js/634.62ac1581.chunk.js": "/goit-react-hw-08-phonebook/static/js/634.62ac1581.chunk.js",
+    "static/js/539.78b01cf8.chunk.js": "/goit-react-hw-08-phonebook/static/js/539.78b01cf8.chunk.js",
+    "static/js/542.a4d2b029.chunk.js": "/goit-react-hw-08-phonebook/static/js/542.a4d2b029.chunk.js",
+    "static/js/407.68da7a5c.chunk.js": "/goit-react-hw-08-phonebook/static/js/407.68da7a5c.chunk.js",
+    "static/js/844.f407872d.chunk.js": "/goit-react-hw-08-phonebook/static/js/844.f407872d.chunk.js",
     "static/media/iphone2x.png": "/goit-react-hw-08-phonebook/static/media/iphone2x.0271fdcdc3df6fc79b51.png",
     "static/media/heroBanner.jpg": "/goit-react-hw-08-phonebook/static/media/heroBanner.b31936fb63e39808d783.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.3e3f00fb.css.map": "/goit-react-hw-08-phonebook/static/css/main.3e3f00fb.css.map",
-    "main.1f60c2d3.js.map": "/goit-react-hw-08-phonebook/static/js/main.1f60c2d3.js.map"
+    "main.c1d412d2.js.map": "/goit-react-hw-08-phonebook/static/js/main.c1d412d2.js.map",
+    "812.b3d12c32.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/812.b3d12c32.chunk.js.map",
+    "634.62ac1581.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/634.62ac1581.chunk.js.map",
+    "539.78b01cf8.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/539.78b01cf8.chunk.js.map",
+    "542.a4d2b029.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/542.a4d2b029.chunk.js.map",
+    "407.68da7a5c.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/407.68da7a5c.chunk.js.map",
+    "844.f407872d.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/844.f407872d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3e3f00fb.css",
-    "static/js/main.1f60c2d3.js"
+    "static/js/main.c1d412d2.js"
   ]
 }
