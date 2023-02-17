@@ -63,3 +63,49 @@ export const LoginInput = styled.input`
     color: transparent;
   }
 `;
+
+export const SignInWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    gap: 40px;
+  }
+`;
+
+export const SignIn = styled.button`
+  cursor: pointer;
+  text-align: center;
+  border-radius: 60px;
+  padding: 4px 15px;
+  font-size: 12px;
+  font-family: 'Ubuntu';
+  color: #000;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  transition: all 0.5s ease-out;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.04);
+    transition: all 0.5s ease-out;
+    background-color: #49869ea7;
+    color: #fff;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+export const SignInLink = styled.a`
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+`;

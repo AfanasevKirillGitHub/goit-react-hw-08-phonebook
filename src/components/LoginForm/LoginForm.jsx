@@ -1,7 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authThunk';
-import Box from 'components/Box/Box';
-import { LoginFormStyled, LoginInput, LoginLabel } from './LoginForm.styled';
+import {
+  LoginFormStyled,
+  LoginInput,
+  LoginLabel,
+  SignIn,
+  SignInLink,
+  SignInWrapper,
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -19,7 +25,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <LoginFormStyled onSubmit={handleSubmit} as="form">
+    <LoginFormStyled onSubmit={handleSubmit}>
       <LoginLabel>
         Email
         <LoginInput
@@ -39,12 +45,12 @@ export const LoginForm = () => {
         />
       </LoginLabel>
 
-      <Box>
-        <button type="submit">Sign In</button>
-        <a href="/goit-react-hw-08-phonebook/register">
-          "Don't have an account? Sign Up"
-        </a>
-      </Box>
+      <SignInWrapper>
+        <SignIn type="submit">Sign In</SignIn>
+        <SignInLink href="/goit-react-hw-08-phonebook/register">
+          Don't have account?
+        </SignInLink>
+      </SignInWrapper>
     </LoginFormStyled>
   );
 };

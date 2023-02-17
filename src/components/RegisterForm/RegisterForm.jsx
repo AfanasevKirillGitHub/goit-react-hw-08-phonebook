@@ -1,6 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authThunk';
-import Box from 'components/Box/Box';
+import {
+  RegisterFormStyled,
+  RegisterInput,
+  RegisterLabel,
+} from './RegisterForm.styled';
+import {
+  SignIn,
+  SignInLink,
+  SignInWrapper,
+} from 'components/LoginForm/LoginForm.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,36 +28,36 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Box onSubmit={handleSubmit} as="form">
-      <label>
+    <RegisterFormStyled onSubmit={handleSubmit}>
+      <RegisterLabel>
         Name
-        <input name="name" type="text" id="name" placeholder="Name" />
-      </label>
-      <label>
+        <RegisterInput name="name" type="text" id="name" placeholder="Name" />
+      </RegisterLabel>
+      <RegisterLabel>
         Email
-        <input
+        <RegisterInput
           name="email"
           type="email"
           id="email"
           placeholder="email@gmail.com"
         />
-      </label>
-      <label>
+      </RegisterLabel>
+      <RegisterLabel>
         Password
-        <input
+        <RegisterInput
           name="password"
           type="password"
           id="password"
           placeholder="********"
         />
-      </label>
+      </RegisterLabel>
 
-      <Box>
-        <button type="submit">Sign Up</button>
-        <a href="/goit-react-hw-08-phonebook/login">
-          Already have an account? Sign in
-        </a>
-      </Box>
-    </Box>
+      <SignInWrapper>
+        <SignIn type="submit">Sign Up</SignIn>
+        <SignInLink href="/goit-react-hw-08-phonebook/login">
+          If you have account ? Sign In...
+        </SignInLink>
+      </SignInWrapper>
+    </RegisterFormStyled>
   );
 };
